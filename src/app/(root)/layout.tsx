@@ -6,6 +6,8 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <main>{children}</main>
+    <main className="flex h-screen w-full font-inter">
+      {children}
+      </main>
   );
 }

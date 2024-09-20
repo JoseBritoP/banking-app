@@ -1,6 +1,6 @@
 import React from "react";
-import AnimatedCounter from "./AnimatedCounter";
 import DoughnutChart from "./DoughnutChart";
+import AnimatedCounter from "./AnimatedCounter";
 
 export default function TotalBalanceBox({accounts = [],totalBanks,totalCurrentBalance,}: TotalBalanceBoxProps) {
   return (

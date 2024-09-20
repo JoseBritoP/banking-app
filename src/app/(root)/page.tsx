@@ -1,5 +1,5 @@
 import HeaderBox from "@/components/shared/HeaderBox";
-import TotalBalanceBox from "@/components/shared/TotalBalanceBox";
+import TotalBalanceBox from "@/components/shared/HomeComponents/TotalBalanceBox";
 import React from "react";
 
 export default function HomePage() {
