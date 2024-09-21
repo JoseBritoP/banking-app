@@ -220,6 +220,7 @@ declare interface RightSidebarProps {
 
 declare interface SiderbarProps {
   user: User;
+  mobile?:boolean
 }
 
 declare interface RecentTransactionsProps {
