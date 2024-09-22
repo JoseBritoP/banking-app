@@ -1,5 +1,5 @@
-import MobileNav from "@/components/shared/SidebarComponents/MobileNav";
-import Sidebar from "@/components/shared/SidebarComponents/Sidebar";
+import MobileNav from "@/components/shared/SidebarComponents/leftSidebar/MobileNav";
+import Sidebar from "@/components/shared/SidebarComponents/leftSidebar/Sidebar";
 import Image from "next/image";
 import mainLogo from '@/public/icons/logo.svg'
 

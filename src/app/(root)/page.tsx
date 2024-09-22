@@ -21,7 +21,11 @@ export default function HomePage() {
             totalCurrentBalance={1250.5}
           />
         </header>
+
+        RECENT TRANSACTIONS
       </div>
+
+      
     </section>
   );
 }
