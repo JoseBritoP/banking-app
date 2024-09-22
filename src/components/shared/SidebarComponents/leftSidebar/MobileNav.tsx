@@ -13,7 +13,7 @@ export default function MobileNav({user}:MobileNavProps) {
     <section className='w-full max-w-[264px]'>
      <Sheet>
       <SheetTrigger asChild>
-        <Image src={hambuger} alt='Hamburger menu' width={30} height={30} className='cursor-pointer'/>
+        <Image src={'/icons/hamburger.svg'} alt='Hamburger menu' width={30} height={30} className='cursor-pointer'/>
       </SheetTrigger>
       <SheetContent side='left' className='border-none bg-white'>
         <SidebarContent user={user} mobile={true}/>

@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import logo from '@/public/icons/logo.svg'
 import SidebarLinks from './SidebarLinks'
 import { SheetClose } from '@/components/ui/sheet'
 
@@ -10,7 +9,7 @@ export default function SidebarContent({ user,mobile }: SiderbarProps) {
     <nav className="flex flex-col gap-4">
       <Link href={"/"} className={`${mobile ? 'mb-0 gap-1 px-4 cursor-pointer items-center' :'mb-12 cursor-pointer items-center gap-2'} `}>
         <Image
-          src={logo}
+          src={'/icons/logo.svg'}
           width={34}
           height={34}
           alt="Horizon Logo"

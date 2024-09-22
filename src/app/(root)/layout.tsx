@@ -1,7 +1,7 @@
 import MobileNav from "@/components/shared/SidebarComponents/leftSidebar/MobileNav";
 import Sidebar from "@/components/shared/SidebarComponents/leftSidebar/Sidebar";
 import Image from "next/image";
-import mainLogo from '@/public/icons/logo.svg'
+
 
 export default function Layout({
   children,
@@ -15,7 +15,7 @@ export default function Layout({
       <div className="flex size-full flex-col">
         <div className="root-layout">
           <Image
-            src={mainLogo}
+            src={'/icons/logo.svg'}
             alt="menu icon"
             width={30}
             height={30}

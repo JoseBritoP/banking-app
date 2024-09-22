@@ -16,7 +16,7 @@ export default function SidebarLinks({mobile}:{mobile?:boolean }) {
       {sidebarLinks.map((item) => {
         const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`)
         return (
-          <>
+          <div key={item.label}>
             { mobile === true ? 
               (<SheetClose asChild key={item.route}>
                 <Link
@@ -50,7 +50,7 @@ export default function SidebarLinks({mobile}:{mobile?:boolean }) {
                 })}>{item.label}</p>
               </Link>) 
             }
-          </>
+          </div>
         );
       })}
     </div>

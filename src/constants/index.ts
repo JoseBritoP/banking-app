@@ -1,26 +1,21 @@
-import homeLogo from '@/public/icons/home.svg'
-import dollarLogo from '@/public/icons/dollar-circle.svg'
-import transactionLogo from '@/public/icons/transaction.svg'
-import sendLogo from '@/public/icons/money-send.svg'
-
 export const sidebarLinks = [
   {
-    imgURL: homeLogo,
+    imgURL: '/icons/home.svg',
     route: "/",
     label: "Home",
   },
   {
-    imgURL: dollarLogo,
+    imgURL: '/icons/dollar-circle.svg',
     route: "/my-banks",
     label: "My Banks",
   },
   {
-    imgURL: transactionLogo,
+    imgURL: '/icons/transaction.svg',
     route: "/transaction-history",
     label: "Transaction History",
   },
   {
-    imgURL: sendLogo,
+    imgURL: '/icons/money-send.svg',
     route: "/payment-transfer",
     label: "Transfer Funds",
   },
