@@ -6,7 +6,7 @@ export default function RightSidebar({user,transactions,banks}:RightSidebarProps
   return (
     <aside className='right-sidebar'>
      <ProfileSection user={user}/>
-     <BanksSection banks={banks}/>
+     <BanksSection user={user} banks={banks}/>
     </aside>
   )
 }
