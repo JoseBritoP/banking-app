@@ -223,6 +223,7 @@ declare interface ProfileSectionProps {
 }
 
 declare interface BanksSectionProps {
+  user:User
   banks:Bank[] & Account[]
 }
 
