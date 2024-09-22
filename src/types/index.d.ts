@@ -218,6 +218,14 @@ declare interface RightSidebarProps {
   banks: Bank[] & Account[];
 }
 
+declare interface ProfileSectionProps {
+  user:User
+}
+
+declare interface BanksSectionProps {
+  banks:Bank[] & Account[]
+}
+
 declare interface SiderbarProps {
   user: User;
   mobile?:boolean
