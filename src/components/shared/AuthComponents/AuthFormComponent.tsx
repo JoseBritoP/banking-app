@@ -12,7 +12,7 @@ import { Loader2 } from "lucide-react";
 interface AuthFormComponentProps {
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  type:string
+  type: string;
 }
 
 export default function AuthFormComponent({
@@ -29,9 +29,9 @@ export default function AuthFormComponent({
   });
 
   function onSubmit(values: z.infer<typeof authFormSchema>) {
-    setIsLoading(true)
+    setIsLoading(true);
     console.log(values);
-    setIsLoading(false)
+    setIsLoading(false);
   }
 
   return (
@@ -51,15 +51,20 @@ export default function AuthFormComponent({
           placeholder="Enter your password"
           type="password"
         />
-        <Button type="submit" className="form-btn" disabled={isLoading}>
-          {isLoading ? (
-            <>
-              <Loader2 size={20} className="animate-spin" />&nbsp;
-              Loading...
-            </>
-          ) : type === 'sign-in' ? 'Sign In' : 'Sign Up'
-          }
-        </Button>
+        <div className="flex flex-col gap-4 px-6">
+          <Button type="submit" className="form-btn" disabled={isLoading}>
+            {isLoading ? (
+              <>
+                <Loader2 size={20} className="animate-spin" />
+                &nbsp; Loading...
+              </>
+            ) : type === "sign-in" ? (
+              "Sign In"
+            ) : (
+              "Sign Up"
+            )}
+          </Button>
+        </div>
       </form>
     </Form>
   );
