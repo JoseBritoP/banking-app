@@ -5,15 +5,17 @@ import { Control } from 'react-hook-form'
 import { z } from 'zod'
 import { authFormSchema } from '@/schema'
 import { FieldPath } from 'react-hook-form'
+
+const formSchema = authFormSchema('sign-up')
+
 interface AuthFormInput {
-  control:Control<z.infer<typeof authFormSchema>>,
-  name: FieldPath<z.infer<typeof authFormSchema>>
+  control:Control<z.infer<typeof formSchema>>,
+  name: FieldPath<z.infer<typeof formSchema>>
   label:string
   placeholder:string
   type?:string
 }
 export default function AuthFormInput({control,name,label,placeholder,type}:AuthFormInput) {
-  
   return (
     <FormField
       control={control}
@@ -26,7 +28,7 @@ export default function AuthFormInput({control,name,label,placeholder,type}:Auth
               <Input
                 placeholder={placeholder}
                 className="input-class"
-                type={type}
+                type={type === '' ? 'text' : type}
                 {...field}
               />
             </FormControl>
