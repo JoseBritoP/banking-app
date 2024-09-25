@@ -4,7 +4,6 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import hambuger from '@/public/icons/hamburger.svg'
 import Image from 'next/image'
 import SidebarContent from './SidebarContent'
 
