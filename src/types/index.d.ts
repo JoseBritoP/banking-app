@@ -29,6 +29,7 @@ declare type User = {
   $id: string;
   email: string;
   userId: string;
+  name:string
   dwollaCustomerUrl: string;
   dwollaCustomerId: string;
   firstName: string;
@@ -210,6 +211,7 @@ declare interface TotalBalanceBoxProps {
 
 declare interface FooterProps {
   user: User;
+  type:'mobile' | 'desktop'
 }
 
 declare interface RightSidebarProps {
