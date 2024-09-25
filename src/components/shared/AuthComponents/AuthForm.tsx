@@ -19,6 +19,7 @@ export default function AuthForm({ type }: { type: string }) {
             isLoading={isLoading}
             setIsLoading={setIsLoading}
             type={type}
+            setUser={setUser}
           />
         )}
         <AuthFormFooter type={type} />
