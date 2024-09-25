@@ -1,14 +1,19 @@
 import MobileNav from "@/components/shared/SidebarComponents/leftSidebar/MobileNav";
 import Sidebar from "@/components/shared/SidebarComponents/leftSidebar/Sidebar";
+import { getLoggedInUser } from "@/lib/actions/user.actions";
 import Image from "next/image";
+import { redirect, useRouter } from "next/navigation";
 
 
-export default function Layout({
+export default async function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const loggedIn = { firstName: "Adrian", lastName: "Invernizzio" };
+
+  const loggedIn = await getLoggedInUser()
+
+  if(!loggedIn) redirect('/sign-in')
   return (
     <main className="flex h-screen w-full font-inter">
       <Sidebar user={loggedIn} />
@@ -26,6 +31,6 @@ export default function Layout({
         </div>
         {children}
       </div>
-    </main>
+    </main> 
   );
 }
