@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import SidebarLinks from './SidebarLinks'
 import { SheetClose } from '@/components/ui/sheet'
+import FooterLS from './FooterLS'
 
 export default function SidebarContent({ user,mobile }: SiderbarProps) {
   return (
@@ -18,10 +19,11 @@ export default function SidebarContent({ user,mobile }: SiderbarProps) {
         <h1 className={`${mobile ? 'text-26 font-ibm-plex-serif font-bold text-black-1': 'sidebar-logo'}`}>Horizon</h1>
       </Link>
       {mobile && (
-        <div className='mobilenav-sheet'>
+        <div className='mobilenav-sheet pb-10'>
           <SheetClose className='flex h-full flex-col gap-6 pt-16 text-white'>
             <SidebarLinks mobile={true}/>
           </SheetClose>
+          <FooterLS user={user} type='mobile'/>
         </div>
       )}
       <SidebarLinks/>
