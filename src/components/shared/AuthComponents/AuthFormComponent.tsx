@@ -9,18 +9,17 @@ import AuthFormInput from "./AuthFormInput";
 import { authFormSchema } from "@/schema";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { signIn, signUp } from "@/lib/actions/user.actions";
 
 interface AuthFormComponentProps {
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   type: string;
+  setUser:React.Dispatch<React.SetStateAction<null>>
 }
 
-export default function AuthFormComponent({
-  type,
-  isLoading,
-  setIsLoading,
-}: AuthFormComponentProps) {
+export default  function AuthFormComponent({type,isLoading,setIsLoading,setUser}: AuthFormComponentProps) {
+
   const formSchema = authFormSchema(type);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -31,24 +30,23 @@ export default function AuthFormComponent({
     },
   });
 
+  const router = useRouter()
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
-    console.log(values);
-    const router = useRouter()
     try {
       // Sign In with Appwrite & create plaid token
       if(type === 'sign-up'){
-        // const newUser = await signUp(values)
-        // setUser(newUser)
+        const newUser = await signUp(values)
+        setUser(newUser)
       } 
 
       if(type === 'sign-in'){
-        // const response = await signIn({
-        //   email:values.email,
-        //   password:values.password
-        // })
+        const response = await signIn({
+          email:values.email,
+          password:values.password
+        })
 
-        // if(response) router.push('/')
+        if(response) router.push('/')
       }
     } catch (error) {
       console.log(error)
