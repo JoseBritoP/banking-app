@@ -6,11 +6,22 @@ import { createAdminClient, createSessionClient } from "../server/appwrite";
 import { ID } from "node-appwrite";
 import { parseStringify } from "../utils";
 
-export const signIn = async (userData:signInProps) => {
+export const signIn = async (userData: signInProps) => {
   try {
     const { account } = await createAdminClient();
-    const response = await account.createEmailPasswordSession(userData.email, userData.password)
-    return parseStringify(response)
+    const session = await account.createEmailPasswordSession(
+      userData.email,
+      userData.password
+    );
+
+    cookies().set('appwrite-session',session.secret,{
+      path:'/',
+      httpOnly:true,
+      sameSite:"strict",
+      secure:true
+    })
+
+    return parseStringify(session);
   } catch (error: any) {
     console.log("Error", error.message);
   }
@@ -39,9 +50,9 @@ export const signUp = async (userData: SignUpParams) => {
       secure: true,
     });
 
-    console.log(userData)
+    console.log(userData);
 
-    return parseStringify(newUserAccount)
+    return parseStringify(newUserAccount);
   } catch (error: any) {
     console.log("Error", error.message);
   }
@@ -54,5 +65,19 @@ export async function getLoggedInUser() {
   } catch (error: any) {
     console.log("Error", error);
     return null;
+  }
+}
+
+export async function logoutAccount() {
+  try {
+    const { account } = await createSessionClient();
+
+    cookies().delete("appwrite-session");
+    await account.deleteSession("current");
+    
+    return true 
+  } catch (error: any) {
+    console.log("Error logout", error);
+    return;
   }
 }
