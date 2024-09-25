@@ -2,6 +2,7 @@
 "use server";
 import { Client, Account, Databases, Users } from "node-appwrite";
 import { cookies } from "next/headers";
+import { parseStringify } from "../utils";
 
 const { NEXT_PUBLIC_APPWRITE_ENDPOINT, NEXT_PUBLIC_APPWRITE_PROJECT, NEXT_APPWRITE_KEY } = process.env
 
@@ -47,7 +48,9 @@ export async function createAdminClient() {
 export async function getLoggedInUser() {
   try {
     const { account } = await createSessionClient();
-    return await account.get();
+    
+    const user = await account.get();
+    return parseStringify(user)
   } catch (error:any) {
     console.log('Error',error)
     return null;
